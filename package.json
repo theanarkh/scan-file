@@ -1,0 +1,14 @@
+{
+  "name": "scan-file",
+  "version": "1.0.6",
+  "description": "scan file and you can handle the content of file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "scan": "./index.js"
+  },
+  "author": "2923878201@qq.com",
+  "license": "ISC"
+}
