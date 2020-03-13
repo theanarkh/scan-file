@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+//#! /usr/bin/env node
 
 /**
  * @description scan file 
@@ -7,6 +7,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+process.argv[2] = "configPath=./config";
 if (!process.argv.slice(2).length) {
   console.error('please config the configPath: scan configPath=xxx');
   process.exit();
@@ -35,7 +36,8 @@ let {
   root,
   exclude,
   output,
-  hooks = []
+  hooks = [],
+  replace
 } = config;
 // support mutiple root and resolve them
 root = [].concat(root).map((item) => {
@@ -74,10 +76,11 @@ fileQueue.forEach(function(filename) {
     hooks.forEach(function(fn) {
         fileContent = fn(fileContent, filename);
     });
-    result = result.concat(fileContent);
+    output && (result = result.concat(fileContent));
+    replace && (fs.writeFileSync(filename, fileContent, 'utf-8'));
 })
 
-if (config.output) {
+if (output) {
     if (typeof config.output === 'function') {
       config.output(result);
     } else {
