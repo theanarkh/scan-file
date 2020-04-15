@@ -1,6 +1,6 @@
 {
   "name": "scan-file",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "scan file and you can handle the content of file",
   "main": "index.js",
   "scripts": {
