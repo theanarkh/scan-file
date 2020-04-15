@@ -7,7 +7,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-process.argv[2] = "configPath=./config";
+// process.argv[2] = "configPath=./config";
 if (!process.argv.slice(2).length) {
   console.error('please config the configPath: scan configPath=xxx');
   process.exit();
